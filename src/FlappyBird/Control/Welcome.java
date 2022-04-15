@@ -1,4 +1,4 @@
 package FlappyBird.Control;
 
-public class WelcomeWindow {
+public class Welcome {
 }

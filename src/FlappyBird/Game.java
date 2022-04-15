@@ -3,14 +3,14 @@ package FlappyBird;
 import FlappyBird.Control.*;
 import FlappyBird.Util.Constant;
 
-import javax.swing.*;
-
 import java.awt.*;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.awt.image.BufferedImage;
 
 import static FlappyBird.Util.Constant.*;
 
-public class Game {
+public class Game extends Frame{
 
     private static int gameState;
 
@@ -18,7 +18,7 @@ public class Game {
     private Bird bird;
     private CloudControl cloudControl;
     private PipeControl pipeControl;
-    private WelcomeWindow welcomeWindow;
+    private Welcome welcome;
 
     public Game(){
         initFrame();
@@ -26,22 +26,26 @@ public class Game {
     }
 
     public void initFrame(){
-        // Create the frame
-        JFrame frame = new JFrame();
+        // init the frame
         // Set the title
-        frame.setTitle(Constant.frameTitle);
+        setTitle(frameTitle);
         // Set size of the frame
-        frame.setSize(Constant.frameWidth, Constant.frameHeight);
+        setSize(frameWidth, frameHeight);
         // Set location of component
-        frame.setLocation(Constant.frameX,Constant.frameY);
+        setLocation(frameX,frameY);
         // Not change the window size
-        frame.setResizable(false);
+        setResizable(false);
         // Set icon image
-        frame.setIconImage(img.getImage());
+        setIconImage(img.getImage());
         // Exit when close program
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                System.exit(0);
+            }
+        });
         // Show it
-        frame.setVisible(true);
+        setVisible(true);
     }
 
     public void initGame(){
@@ -49,6 +53,25 @@ public class Game {
         bird = new Bird();
         cloudControl = new CloudControl();
         pipeControl = new PipeControl();
-        welcomeWindow = new WelcomeWindow();
+        welcome = new Welcome();
+
+        new Thread(() ->{
+            while(true){
+                repaint();
+                try {
+                    Thread.sleep(Constant.FPS);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        }).start();
+    }
+
+    private final BufferedImage bufImg = new BufferedImage(frameWidth, frameHeight, BufferedImage.TYPE_4BYTE_ABGR);
+
+    public void update(Graphics g){
+        Graphics bufG = bufImg.getGraphics();
+        backGround.draw(bufG);
+        g.drawImage(bufImg, 0, 0, null);
     }
 }

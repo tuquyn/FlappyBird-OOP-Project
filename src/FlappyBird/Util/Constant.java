@@ -6,12 +6,17 @@ public class Constant {
     // Window size
     public static final int frameWidth = 1024;
     public static final int frameHeight = 512;
-
+    // Window position
     public static final int frameX = 250;
     public static final int frameY = 200;
-
-    public static final ImageIcon img = new ImageIcon("src/resources/icon.png");
-
+    // Game title
     public static final String frameTitle = "Flappy Bird made by We Showed up!";
+    // Game refresh rate
     public static final int FPS = 60;
+    // icon
+    public static final ImageIcon img = new ImageIcon("src/resources/icon.png");
+    // background
+    public static final String BG_PATH = "src/resources/background.png";
+    // speed
+    public static final int SPEED = 10;
 }
