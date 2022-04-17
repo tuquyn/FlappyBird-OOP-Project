@@ -17,6 +17,8 @@ public class Constant {
     public static final ImageIcon img = new ImageIcon("src/resources/icon.png");
     // background
     public static final String BG_PATH = "src/resources/background.png";
+    // cloud
+    public static final String[] Cloud_PATH = {"src/resources/cloud(1).png","src/resources/cloud(2).png","resources/cloud(3).png"};
     // speed
     public static final int SPEED = 10;
 }

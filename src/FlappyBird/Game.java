@@ -2,6 +2,7 @@ package FlappyBird;
 
 import FlappyBird.Control.*;
 import FlappyBird.Util.Constant;
+import FlappyBird.Util.Util;
 
 import java.awt.*;
 import java.awt.event.WindowAdapter;
@@ -72,6 +73,7 @@ public class Game extends Frame{
     public void update(Graphics g){
         Graphics bufG = bufImg.getGraphics();
         backGround.draw(bufG);
+        cloudControl.draw(bufG);
         g.drawImage(bufImg, 0, 0, null);
     }
 }

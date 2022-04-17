@@ -20,10 +20,9 @@ public class BackGround {
     }
     public void draw(Graphics g){
         int width = backGroundImg.getWidth();
-        int height = backGroundImg.getHeight();
 
-        int count = frameWidth / width + 2;
-        // frameWidth / width >= 0, when it is 0, we need at least 2 pics bg to make it like moving
+        int count = 2;
+        // we need at least 2 pics bg to make it like moving
 
         for(int i = 0; i < count; i++){
             g.drawImage(backGroundImg, width * i - layerX, 0, null);
