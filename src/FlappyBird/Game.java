@@ -134,8 +134,7 @@ public class Game extends Frame implements KeyListener {
      */
     @Override
     public void keyReleased(KeyEvent e) {
-        int keycode = e.getKeyChar();
-        if(keycode == KeyEvent.VK_SPACE){
+        if(e.getKeyCode() == KeyEvent.VK_SPACE){
         }
     }
     /**

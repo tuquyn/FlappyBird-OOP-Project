@@ -30,7 +30,7 @@ public class Constant {
     // background
     public static final String BG_PATH = "src/resources/background.png";
     // cloud
-    public static final String[] Cloud_PATH = {"src/resources/cloud(1).png","src/resources/cloud(2).png","resources/cloud(3).png"};
+    public static final String[] Cloud_PATH = {"src/resources/cloud(1).png","src/resources/cloud(2).png","src/resources/cloud(3).png"};
     // speed
     public static final int SPEED = 10;
     // title
@@ -54,7 +54,7 @@ public class Constant {
     public static final String SPACE = "src/resources/space.png";
 
     // Bird
-    public  static final int birdSize = 50;
+    public  static final int birdSize = 40;
     // BIRD_PATH[i][0] = up, [i][9] = dead, size = 10
     public static final String[][] BIRD_PATH = {{"src/resources/bird0/up.png","src/resources/bird0/down_0.png","src/resources/bird0/down_1.png"
             ,"src/resources/bird0/down_2.png","src/resources/bird0/down_3.png","src/resources/bird0/down_4.png"
