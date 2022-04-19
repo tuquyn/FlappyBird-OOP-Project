@@ -15,7 +15,7 @@ public class Cloud {
         this.img = img;
     }
     public void draw(Graphics g){
-        this.x -= SPEED/2;
+        this.x -= SPEED*3/2;
         g.drawImage(img, x, y, frameWidth / 10, frameHeight / 10, null);
         if(this.x <= -1 * img.getWidth())
             this.x = frameWidth;

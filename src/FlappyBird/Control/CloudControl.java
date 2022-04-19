@@ -37,7 +37,7 @@ public class CloudControl {
         for(int i = 0; i < 3; i++){
             int x = rand.nextInt(maxX - minX) + minX;
             int y = rand.nextInt(frameHeight / 3);
-            Cloud cl = new Cloud(x, y, Util.loadBufferedImage(Cloud_PATH[0]));
+            Cloud cl = new Cloud(x, y, Util.loadBufferedImage(Cloud_PATH[i]));
             clouds.add(cl);
             minX = maxX;
             maxX += frameWidth / 3;
@@ -53,17 +53,6 @@ public class CloudControl {
 
     public void init(){
         newThreeCloud();
-
-
-
-        //        Random rand = new Random();
-//        int x = rand.nextInt(frameWidth + 2000 - frameWidth + 100) + (frameWidth + 100);
-//        int y = rand.nextInt(frameHeight/3);
-
-//        Cloud cl = new Cloud(frameWidth / 2, frameHeight / 2, Util.loadBufferedImage(Cloud_PATH[0]));
-//        clouds.add(cl);
-//        cl = new Cloud(frameWidth / 3, frameHeight / 3, Util.loadBufferedImage(Cloud_PATH[0]));
-//        clouds.add(cl);
 
     }
 }
