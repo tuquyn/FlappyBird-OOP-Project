@@ -8,7 +8,7 @@
 **Members:**  
 **Nguyen Dang Tu Quyen - ITITIU20016 - ndtquyen147@gmail.com**  
 **Huynh Thi Tu Chi - ITITIU20175 - huynhthituchi2002@gmail.com**  
-**Huynh Ngoc Hoai An - ITITIU20152**  
+**Huynh Ngoc Hoai An - ITITIU20152 - scout112323@gmail.com**  
 **Nguyen Dang Bao - ITITIU20164 - brendanbao12@gmail.com**  
 
 **Introduction:**  
