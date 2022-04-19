@@ -6,10 +6,10 @@
 ![](https://img.shields.io/badge/game-FlappyBird-brightgreen)
 
 **Members:**  
-**Nguyen Dang Tu Quyen - ITITIU20016**  
-**Huynh Thi Tu Chi - ITITIU20175**  
+**Nguyen Dang Tu Quyen - ITITIU20016 - ndtquyen147@gmail.com**  
+**Huynh Thi Tu Chi - ITITIU20175 - huynhthituchi2002@gmail.com**  
 **Huynh Ngoc Hoai An - ITITIU20152**  
-**Nguyen Dang Bao - ITITIU20164**  
+**Nguyen Dang Bao - ITITIU20164 - brendanbao12@gmail.com**  
 
 **Introduction:**  
 * *We love to make a loop game that means we can minimize the number of different levels as the bugs in each level like Boom Game, PacMan.
