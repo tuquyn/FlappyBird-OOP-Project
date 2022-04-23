@@ -31,11 +31,11 @@ https://github.com/ajsaavedra/FlappyBird
 **The project "Flappy Bird":**
 > 1. The rules:
   - About the rules of the button and the arrow flashes
-     - The button:
+     a) The button:
       + Button1 (the red button): This is the button to select different birds in different levels. When you reach a certain milestone, you will unlock a bird with a           different look. In that time, this button will help you select the favorite bird if you want.
       + Button2 (the yellow button): When you press space on this button, you will start the game.
       + Button3 (the blue button): This is the leaderboard to show the score you have achieved.
-     - The signal to move (the arrow flashes):
+     b) The signal to move (the arrow flashes):
       + "^" signal: to move up
       + "v" signal: to move down
       + ">" signal: to go the next button
