@@ -32,14 +32,15 @@ https://github.com/ajsaavedra/FlappyBird
 > 1. The rules:
   - About the rules of the button and the arrow flashes
      > a) The button:
-      + Button1 (the red button): This is the button to select different birds in different levels. When you reach a certain milestone, you will unlock a bird with a           different look. In that time, this button will help you select the favorite bird if you want.
-      + Button2 (the yellow button): When you press space on this button, you will start the game.
-      + Button3 (the blue button): This is the leaderboard to show the score you have achieved.
+       + buttonOne (the red button): This is the button to select different birds in different levels. When you reach a certain milestone, you will unlock a bird with          a different look. In that time, this button will help you select the favorite bird if you want.
+       + buttonTwo (the yellow button): When you press space on this button, you will start the game.
+       + buttonThree (the blue button): This is the leaderboard to show the score you have achieved.
+      
      > b) The signal to move (the arrow flashes):
-      + "^" signal: to move up
-      + "v" signal: to move down
-      + ">" signal: to go the next button
-      + "<" signal: to return the before button
+       + "^" signal: to move up
+       + "v" signal: to move down
+       + ">" signal: to go the next button
+       + "<" signal: to return the before button
   - About the rules to play the game
       + Using the signals to move the birds by ^ (fly up), v (fly down)
       + During the play, the player must maintain a safe distance between the bird and the pipe. This means that the bird must not fly too high (hit the upper pipe)           nor should the bird fly too low (hit the lower pipe). If the bird follows the safe spots, the game will continue.
