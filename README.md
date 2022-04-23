@@ -29,13 +29,13 @@ https://github.com/granttitus/FlappyBird
 https://github.com/ajsaavedra/FlappyBird
 
 **The project "Flappy Bird":**
-> The rules:
+> 1. The rules:
   - About the rules of the button and the arrow flashes
-    The button:
+     - The button:
       + Button1 (the red button): This is the button to select different birds in different levels. When you reach a certain milestone, you will unlock a bird with a           different look. In that time, this button will help you select the favorite bird if you want.
       + Button2 (the yellow button): When you press space on this button, you will start the game.
       + Button3 (the blue button): This is the leaderboard to show the score you have achieved.
-    The signal to move (the arrow flashes):
+     - The signal to move (the arrow flashes):
       + "^" signal: to move up
       + "v" signal: to move down
       + ">" signal: to go the next button
@@ -44,7 +44,7 @@ https://github.com/ajsaavedra/FlappyBird
       + Using the signals to move the birds by ^ (fly up), v (fly down)
       + During the play, the player must maintain a safe distance between the bird and the pipe. This means that the bird must not fly too high (hit the upper pipe)           nor should the bird fly too low (hit the lower pipe). If the bird follows the safe spots, the game will continue.
       + In the case, if the bird hits the pipe, it will die and the game will be over.
-> Design (the effects in welcomeScreen):
+> 2. Design (the effects in welcomeScreen):
   - Backgroud: We changed the background instead of the simple blue background, it's now more attractive because of the beautiful scene (blue sky, mountain, jungle,       ground).
   - Cloud: The clouds are shown throughout the game from start to finish (this is a new point in our game). The clouds will be moved dynamically.
   - Welcome: The game name “Flappy bird” was added at the beginning. Moreover, we made it more colorful and beautiful. And the words "Press space to continue" are         displayed under the game name. We added them to liven up the welcome part.
