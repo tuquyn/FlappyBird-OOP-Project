@@ -15,6 +15,7 @@ public class Game extends Frame implements KeyListener {
     private static int gameState;
     private BackGround backGround;
     private Bird bird;
+
     private CloudControl cloudControl;
     private PipeControl pipeControl;
     private Welcome welcome;
@@ -71,6 +72,7 @@ public class Game extends Frame implements KeyListener {
     public static void setGameState(int state){
         gameState = state;
     }
+    public void setBirdStatus(int state){ bird.setStatus(state);}
 
     private final BufferedImage bufImg = new BufferedImage(frameWidth, frameHeight, BufferedImage.TYPE_4BYTE_ABGR);
 
@@ -82,6 +84,13 @@ public class Game extends Frame implements KeyListener {
             welcome.draw(bufG);
             bird.draw(bufG);
         }
+        if(gameState == playGameState){
+            if(bird.getStatus() == 1)bird.drawUp(bufG);
+            if(bird.getStatus() == 0)bird.drawDown(bufG);
+        }
+        if(gameState == gameOverState){
+
+        }
         g.drawImage(bufImg, 0, 0, null);
     }
     @Override
@@ -90,15 +99,11 @@ public class Game extends Frame implements KeyListener {
             case welcomeState:
                 if(e.getKeyCode() == KeyEvent.VK_RIGHT){
                     if(buttonChoose != buttonThree)
-                        if(buttonChoose == buttonOne) buttonChoose = buttonTwo;
-                    else
-                        buttonChoose = buttonThree;
+                        if(buttonChoose == buttonOne) buttonChoose = buttonTwo; else buttonChoose = buttonThree;
                 }
                 if(e.getKeyCode()  == KeyEvent.VK_LEFT){
                     if(buttonChoose != buttonOne)
-                        if(buttonChoose == buttonTwo) buttonChoose = buttonOne;
-                    else
-                        buttonChoose = buttonTwo;
+                        if(buttonChoose == buttonTwo) buttonChoose = buttonOne; else buttonChoose = buttonTwo;
                 }
                 if(e.getKeyCode()  == KeyEvent.VK_UP){
                     if(buttonChoose == buttonOne){
@@ -120,6 +125,7 @@ public class Game extends Frame implements KeyListener {
                 break;
             case playGameState:
                 if (e.getKeyCode() == KeyEvent.VK_SPACE){
+                    setBirdStatus(1);
                 }
                 break;
             case gameOverState:
@@ -135,6 +141,7 @@ public class Game extends Frame implements KeyListener {
     @Override
     public void keyReleased(KeyEvent e) {
         if(e.getKeyCode() == KeyEvent.VK_SPACE){
+            setBirdStatus(0);
         }
     }
     /**

@@ -54,7 +54,7 @@ public class Constant {
     public static final String SPACE = "src/resources/space.png";
 
     // Bird
-    public  static final int birdSize = 40;
+    public static final int birdSize = 40;
     // BIRD_PATH[i][0] = up, [i][9] = dead, size = 10
     public static final String[][] BIRD_PATH = {{"src/resources/bird0/up.png","src/resources/bird0/down_0.png","src/resources/bird0/down_1.png"
             ,"src/resources/bird0/down_2.png","src/resources/bird0/down_3.png","src/resources/bird0/down_4.png"
@@ -70,5 +70,6 @@ public class Constant {
             ,"src/resources/bird1/bird.7.png","src/resources/bird1/bird.8.png","src/resources/bird1/bird.dead.png"
             }
     };
-
+    // pipe
+    public static final String PIPE_PATH = "src/resources/wood.png";
 }
