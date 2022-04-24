@@ -42,7 +42,7 @@ https://github.com/ajsaavedra/FlappyBird
        + ">" signal: to go the next button
        + "<" signal: to return the before button
   - About the rules to play the game
-      + Using the signals to move the birds by ^ (fly up), v (fly down)
+      + Using the signals to move the birds by ^ (fly up)
       + During the play, the player must maintain a safe distance between the bird and the pipe. This means that the bird must not fly too high (hit the upper pipe)           nor should the bird fly too low (hit the lower pipe). If the bird follows the safe spots, the game will continue.
       + In the case, if the bird hits the pipe, it will die and the game will be over.
 > 2. Design (the effects in welcomeScreen):
