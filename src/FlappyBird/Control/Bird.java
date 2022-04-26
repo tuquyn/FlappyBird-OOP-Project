@@ -34,7 +34,7 @@ public class Bird {
         y = frameHeight / 2;
     }
     public void draw(Graphics g){
-        g.drawImage(img[index+= cnt], x, y, 50, 50, null);
+        g.drawImage(img[index+= cnt], x, y, birdWidth, birdHeight, null);
         if(index == 9)cnt = -1;
         if(index == 0)cnt = 1;
     }

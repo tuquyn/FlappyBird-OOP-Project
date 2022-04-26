@@ -14,6 +14,10 @@ public class Constant {
     public static int buttonChoose = buttonTwo;
 
     public static int birdType = 0; // 0..3
+    // Bird
+    public static final int birdSize = 40;
+    public static final int birdWidth = birdSize;
+    public static final int birdHeight = birdSize - 5;
 
     // Window size
     public static final int frameWidth = 1024;
@@ -53,8 +57,6 @@ public class Constant {
 
     public static final String SPACE = "src/resources/space.png";
 
-    // Bird
-    public static final int birdSize = 40;
     // BIRD_PATH[i][0] = up, [i][9] = dead, size = 10
     public static final String[][] BIRD_PATH = {{"src/resources/bird0/up.png","src/resources/bird0/down_0.png","src/resources/bird0/down_1.png"
             ,"src/resources/bird0/down_2.png","src/resources/bird0/down_3.png","src/resources/bird0/down_4.png"
@@ -62,13 +64,13 @@ public class Constant {
             ,"src/resources/bird0/dead.png"}, {"src/resources/bird3/Up.png", "src/resources/bird3/down_1.png", "src/resources/bird3/down_2.png"
             ,"src/resources/bird3/down_3.png","src/resources/bird3/down_4.png","src/resources/bird3/down_5.png",
             "src/resources/bird3/down_6.png","src/resources/bird3/down_7.png","src/resources/bird3/down_8.png","src/resources/bird3/down_9.png"
-            },{"src/resources/bird2/up.png","src/resources/bird2/down_1.png","src/resources/bird2/down_2.png","src/resources/bird2/down_3.png"
-            ,"src/resources/bird2/down_4.png","src/resources/bird2/down_5.png","src/resources/bird2/down_6.png"
-            ,"src/resources/bird2/down_7.png","src/resources/bird2/down_8.png","src/resources/bird2/dead.png"
             },{"src/resources/bird1/bird.up.png","src/resources/bird1/bird.1.png","src/resources/bird1/bird.2.png","src/resources/bird1/bird.3.png"
             ,"src/resources/bird1/bird.4.png","src/resources/bird1/bird.5.png","src/resources/bird1/bird.6.png"
             ,"src/resources/bird1/bird.7.png","src/resources/bird1/bird.8.png","src/resources/bird1/bird.dead.png"
-            }
+            },{"src/resources/bird2/up.png","src/resources/bird2/down_1.png","src/resources/bird2/down_2.png","src/resources/bird2/down_3.png"
+            ,"src/resources/bird2/down_4.png","src/resources/bird2/down_5.png","src/resources/bird2/down_6.png"
+            ,"src/resources/bird2/down_7.png","src/resources/bird2/down_8.png","src/resources/bird2/dead.png"
+    }
     };
     // pipe
     public static final String PIPE_PATH = "src/resources/wood.png";

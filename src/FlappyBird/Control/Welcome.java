@@ -47,7 +47,7 @@ public class Welcome{
         BufferedImage p = Util.loadBufferedImage(BIRD_PATH[birdType][1]);
         
         // draw the selected bird
-        g.drawImage(p, frameWidth / 2 - imgTitle[index].getWidth() / 2 + birdSize / 2, frameHeight - buttonSize * 2 + birdSize / 2, birdSize, birdSize,null);
+        g.drawImage(p, frameWidth / 2 - imgTitle[index].getWidth() / 2 + buttonSize * 1 / 4, frameHeight - buttonSize * 2 + buttonSize / 4, birdWidth, birdHeight,null);
 
         // this part is shown to choose the button:
         // 1. if you choose buttonOne: to select bird (in case you have unclocked that bird)
