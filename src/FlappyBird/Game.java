@@ -17,6 +17,8 @@ public class Game extends Frame implements KeyListener {
     private BackGround backGround;
     private Bird bird;
 
+    private boolean keySpaceReleased = true;
+
     private CloudControl cloudControl;
     private PipeControl pipeControl;
     private Welcome welcome;
@@ -134,8 +136,10 @@ public class Game extends Frame implements KeyListener {
                 }
                 break;
             case playGameState:
-                if (e.getKeyCode() == KeyEvent.VK_SPACE){
+                if (e.getKeyCode() == KeyEvent.VK_SPACE && keySpaceReleased){
+                    keySpaceReleased = false;
                     setBirdStatus(1);
+
                 }
                 break;
             case gameOverState:
@@ -150,8 +154,9 @@ public class Game extends Frame implements KeyListener {
      */
     @Override
     public void keyReleased(KeyEvent e) {
-        if(e.getKeyCode() == KeyEvent.VK_SPACE){
-            setBirdStatus(0);
+        if(e.getKeyCode() == KeyEvent.VK_SPACE ){
+            keySpaceReleased = true;
+
         }
     }
     /**
@@ -159,5 +164,6 @@ public class Game extends Frame implements KeyListener {
      */
     @Override
     public void keyTyped(KeyEvent e) {
+       // System.out.println(e.getKeyChar());
     }
 }
