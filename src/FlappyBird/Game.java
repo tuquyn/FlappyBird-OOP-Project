@@ -2,6 +2,7 @@ package FlappyBird;
 
 import FlappyBird.Control.*;
 
+import javax.sound.midi.Soundbank;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
@@ -85,13 +86,22 @@ public class Game extends Frame implements KeyListener {
             bird.draw(bufG);
         }
         if(gameState == playGameState){
-            if(bird.getStatus() == 1)bird.drawUp(bufG);
-            if(bird.getStatus() == 0)bird.drawDown(bufG);
+            if(bird.getStatus() == 1)
+            {bird.drawUp(bufG);}
+            else if(bird.getStatus() == 0)
+            {bird.drawDown(bufG);}
+            if(bird.CheckHitGround())
+            {
+                setGameState(gameOverState);
+            }
         }
-        if(gameState == gameOverState){
 
+        if(gameState == gameOverState){
+            System.out.println("Game Over");
         }
         g.drawImage(bufImg, 0, 0, null);
+        g.setColor(Color.RED);
+        g.drawLine(0,400,frameWidth, 400);
     }
     @Override
     public void keyPressed(KeyEvent e) {
