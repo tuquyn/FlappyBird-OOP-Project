@@ -4,6 +4,7 @@ import FlappyBird.Util.Util;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
+import java.util.EventListener;
 
 import static FlappyBird.Util.Constant.*;
 
@@ -21,15 +22,23 @@ public class Bird {
 
     public void setStatus(int status) {
         this.status = status;
+        if(status == 0)
+        {
+          cnt = 1;
+        }
+        else
+        {
+            cnt = -1;
+        }
     }
 
     public Bird(){
         status = 0;
         cnt = 1;
-        index = -1;
-        img = new BufferedImage[10];
-        for(int i = 0; i < 10; i++)
-            img[i] = Util.loadBufferedImage(birdFlyWelcome[i]);
+        index = 0;
+        img = new BufferedImage[BIRD_PATH[birdType].length];
+        for(int i = 0; i < img.length; i++)
+            img[i] = Util.loadBufferedImage(BIRD_PATH[birdType][i]);
         x = frameWidth / 20;
         y = frameHeight / 2;
     }
@@ -39,9 +48,21 @@ public class Bird {
         if(index == 0)cnt = 1;
     }
     public void drawUp(Graphics g){
+        y-= 5;
+        index = 0;
+        g.drawImage(img[index], x, y, birdWidth, birdHeight, null);
 
     }
     public void drawDown(Graphics g){
-
+        g.drawImage(img[index+= cnt], x, y, birdWidth, birdHeight, null);
+        y+= 5;
+        if(index + 1  == img.length)
+        {
+            index = 0;
+        }
+    }
+    public boolean CheckHitGround()
+    {
+        return  y > 400;
     }
 }
