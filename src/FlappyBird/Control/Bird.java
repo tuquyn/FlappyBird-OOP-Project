@@ -48,7 +48,7 @@ public class Bird {
         if(index == 0)cnt = 1;
     }
     public void drawUp(Graphics g){
-        y-= 5;
+        y-= 20;
         index = 0;
         g.drawImage(img[index], x, y, birdWidth, birdHeight, null);
 
