@@ -1,11 +1,16 @@
-import javafx.geometry.Rectangle2D;
-import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
+package FlappyBird.Control;
+
+import FlappyBird.Util.Util;
+
+import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.awt.geom.Rectangle2D;
+
+import static FlappyBird.Util.Constant.*;
 
 public class PipeTest {
   // Declare the type of variables in private scope
-    private Image image;
+    private BufferedImage image;
     private double Xposition;
     private double Yposition;
     private double Xvelocity;
@@ -22,14 +27,14 @@ public class PipeTest {
     }
   
   // Initialize a void data type setImage function with the input parameter image, width, height type int
-    public void setImage(Image image) {
+    public void setImage(BufferedImage image) {
         this.image = image;
         this.width = image.getWidth();
         this.height = image.getHeight();
     }
 
     public void resizeImage(String filepath, int width, int height) {
-        Image toReturn = new Image(filepath, width, height, false, false);
+        BufferedImage toReturn = new BufferedImage(filepath, width, height, false, false);
         setImage(toReturn);
     }
   
@@ -71,8 +76,8 @@ public class PipeTest {
         return width;
     }
   
-    public void render(GraphicsContext gc) {
-        gc.drawImage(image, Xposition, Yposition);
+    public void render(Graphics g) {
+        g.drawImage(image, Xposition, Yposition);
     }
   
   // Make boundary
