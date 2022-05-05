@@ -4,7 +4,6 @@ import FlappyBird.Util.Util;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
-import java.util.EventListener;
 
 import static FlappyBird.Util.Constant.*;
 
@@ -14,7 +13,7 @@ public class Bird {
     private int cnt;
     private int x;
     private int y;
-    private int status; // 0 is down, 1 is up
+    private int status; // 0 is down, 1 is up, 2 is die
     private int coutFrameUp;
 
     public int getStatus() {
@@ -44,12 +43,39 @@ public class Bird {
         x = frameWidth / 20;
         y = frameHeight / 2;
     }
+    public void Reset()
+    {
+        status = 0;
+        coutFrameUp = 0;
+        cnt = 1;
+        index = 0;
+        x = frameWidth / 20;
+        y = frameHeight / 2;
+    }
     public void draw(Graphics g){
+        if(status== 1)
+        {drawUp(g);}
+        else if(status == 0)
+        {drawDown(g);}
+        else if (status == 2)
+        {
+            DrawDie(g);
+        }
+
+
+    }
+    public void DrawDie(Graphics g)
+    {
+        g.drawImage(img[img.length -1], x, y, birdWidth, birdHeight, null);
+    }
+    public  void DrawWelcome(Graphics g)
+    {
         g.drawImage(img[index+= cnt], x, y, birdWidth, birdHeight, null);
         if(index == 9)cnt = -1;
         if(index == 0)cnt = 1;
     }
     public void drawUp(Graphics g){
+
         y-= 12;
         index = 0;
         coutFrameUp += 1;
@@ -72,6 +98,11 @@ public class Bird {
     }
     public boolean CheckHitGround()
     {
-        return  y > 400;
+        if(y > 400)
+        {
+            status = 2;
+            return  true;
+        }
+        return  false;
     }
 }

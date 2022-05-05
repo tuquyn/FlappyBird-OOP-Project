@@ -2,7 +2,6 @@ package FlappyBird;
 
 import FlappyBird.Control.*;
 
-import javax.sound.midi.Soundbank;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
@@ -22,7 +21,8 @@ public class Game extends Frame implements KeyListener {
     private CloudControl cloudControl;
     private PipeControl pipeControl;
     private Welcome welcome;
-
+    private GameOver gameOver;
+    public static Score score;
     public Game(){
         initFrame();
         initGame();
@@ -60,6 +60,8 @@ public class Game extends Frame implements KeyListener {
         cloudControl = new CloudControl();
         pipeControl = new PipeControl();
         welcome = new Welcome();
+        gameOver = new GameOver();
+        score = new Score();
         new Thread(() ->{
             while(true){
                 repaint();
@@ -85,25 +87,35 @@ public class Game extends Frame implements KeyListener {
         cloudControl.draw(bufG);
         if(gameState == welcomeState){
             welcome.draw(bufG);
-            bird.draw(bufG);
+            bird.DrawWelcome(bufG);
+            if(buttonChoose == buttonThree)
+            {
+                score.drawScoreBoard(bufG);
+            }
         }
         if(gameState == playGameState){
-            if(bird.getStatus() == 1)
-            {bird.drawUp(bufG);}
-            else if(bird.getStatus() == 0)
-            {bird.drawDown(bufG);}
+            bird.draw(bufG);
+
             if(bird.CheckHitGround())
             {
                 setGameState(gameOverState);
+                gameOver.show(true);
+                //score.NewScore("Test2");
             }
+            score.drawScore(bufG);
+            score.score += 1;
         }
 
         if(gameState == gameOverState){
             System.out.println("Game Over");
+            gameState = welcomeState;
+            bird.Reset();
         }
+        bufG.setColor(Color.RED);
+        bufG.drawLine(0,400,frameWidth, 400);
+
+
         g.drawImage(bufImg, 0, 0, null);
-        g.setColor(Color.RED);
-        g.drawLine(0,400,frameWidth, 400);
     }
     @Override
     public void keyPressed(KeyEvent e) {
