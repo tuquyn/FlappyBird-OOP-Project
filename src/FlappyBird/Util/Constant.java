@@ -28,7 +28,7 @@ public class Constant {
     // Game title
     public static final String frameTitle = "Flappy Bird made by We Showed up!";
     // Game refresh rate
-    public static final int FPS = 60;
+    public static final int FPS = 22;
     // icon
     public static final ImageIcon img = new ImageIcon("src/resources/icon.png");
     // background
@@ -36,7 +36,7 @@ public class Constant {
     // cloud
     public static final String[] Cloud_PATH = {"src/resources/cloud(1).png","src/resources/cloud(2).png","src/resources/cloud(3).png"};
     // speed
-    public static final int SPEED = 10;
+    public static final int SPEED = 5;
     // title
     public static final String[] titlePATH ={"src/resources/title/title.png","src/resources/title/title1.png","src/resources/title/title2.png",
             "src/resources/title/title3.png","src/resources/title/title4.png","src/resources/title/title5.png",
