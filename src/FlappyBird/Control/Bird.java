@@ -77,6 +77,7 @@ public class Bird {
     public void drawUp(Graphics g){
 
         y-= 12;
+        CheckHitTop();
         index = 0;
         coutFrameUp += 1;
 
@@ -98,9 +99,18 @@ public class Bird {
     }
     public boolean CheckHitGround()
     {
-        if(y > 400)
+        if(y > 400 - img[0].getHeight())
         {
             status = 2;
+            return  true;
+        }
+        return  false;
+    }
+    public boolean CheckHitTop()
+    {
+        if(y <= img[0].getHeight())
+        {
+            setStatus(0);
             return  true;
         }
         return  false;
