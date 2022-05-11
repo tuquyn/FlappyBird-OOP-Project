@@ -1,21 +1,32 @@
-public class Pipe {
-    private PipeTest pipe;
-    private double Xlocation;
-    private double Ylocation;
-    private double height;
-    private double width;
+package FlappyBird.Control;
 
-    public Pipe(boolean isFaceUp, int height) {
-        this.pipe = new PipeTest();
-        this.pipe.resizeImage(isFaceUp ? "/resources/wood.png" : "/resources/wood.png", 70, height);
-        this.width = 80;
-        this.height = height;
-        this.Xlocation = 500;
-        this.Ylocation = isFaceUp? 600 - height : 0;
-        this.pipe.setXYPosition(Xlocation, Ylocation);
+import java.awt.*;
+
+import static FlappyBird.Util.Constant.*;
+
+public class Pipe {
+    private PipeTest pipeUp;
+    private PipeTest pipeDown;
+    private Coin coin;
+    private int Xlocation;
+    private int Ylocation;
+
+    public Pipe(int height) {
+        this.Xlocation = frameWidth;
+        this.Ylocation = height;
+        this.pipeUp = new PipeTest(Xlocation, Ylocation - heightPipe);
+        this.pipeDown = new PipeTest(Xlocation, Ylocation + 3 * birdSize);
+        this.coin = new Coin(Xlocation + birdSize, Ylocation + birdSize);
     }
 
-    public PipeTest getPipe() {
-        return pipe;
+    public void update(Graphics g){
+        Xlocation -= SPEED;
+        pipeUp.setXYlocation(Xlocation, Ylocation - heightPipe);
+        pipeDown.setXYlocation(Xlocation, Ylocation + 3 * birdSize);
+        pipeUp.draw(g);
+        pipeDown.draw(g);
+
+        coin.setX(Xlocation + birdSize / 2);
+        coin.draw(g);
     }
 }

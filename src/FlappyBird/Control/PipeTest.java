@@ -1,5 +1,6 @@
 package FlappyBird.Control;
 
+import FlappyBird.Util.Constant.*;
 import FlappyBird.Util.Util;
 
 import java.awt.*;
@@ -11,87 +12,52 @@ import static FlappyBird.Util.Constant.*;
 public class PipeTest {
   // Declare the type of variables in private scope
     private BufferedImage image;
-    private double Xposition;
-    private double Yposition;
-    private double Xvelocity;
-    private double Yvelocity;
-    private double width;
-    private double height;
-  
-  // Initialize PipeTest constructor with no arguments
-    public PipeTest() {
-        this.Xposition = 0;
-        this.Yposition = 0;
-        this.Xvelocity = 0;
-        this.Yvelocity = 0;
-    }
-  
-  // Initialize a void data type setImage function with the input parameter image, width, height type int
-    public void setImage(BufferedImage image) {
-        this.image = image;
-        this.width = image.getWidth();
-        this.height = image.getHeight();
+    private int Xlocation;
+    private int Ylocation;
+
+  // Initialize PipeTest constructor
+
+    public PipeTest(int xlocation, int ylocation) {
+        this.image = Util.loadBufferedImage(PIPE_PATH);
+        Xlocation = xlocation;
+        Ylocation = ylocation;
     }
 
-    public void resizeImage(String filepath, int width, int height) {
-        BufferedImage toReturn = new BufferedImage(filepath, width, height, false, false);
-        setImage(toReturn);
-    }
-  
-  // Set position of X and Y 
-    public void setXYPosition(double Xposition, double Yposition) {
-        this.Xposition = Xposition;
-        this.Yposition = Yposition;
+
+//    // Initialize a void data type setImage function with the input parameter image, width, height type int
+//    public void setImage(BufferedImage image) {
+//        this.image = image;
+//        this.width = image.getWidth();
+//        this.height = image.getHeight();
+//    }
+
+//  // Add velocity
+//    public void addVelocity(double x, double y) {
+//        this.Xvelocity += x;
+//        this.Yvelocity += y;
+//    }
+
+    public void draw(Graphics g) {
+        g.drawImage(image, Xlocation, Ylocation, widthPipe, heightPipe, null);
     }
 
-    public double getXPosition() {
-        return Xposition;
+    public void setXYlocation(int xlocation,int ylocation) {
+        Xlocation = xlocation;
+        Ylocation = ylocation;
     }
 
-    public double getYPosition() {
-        return Yposition;
-    }
-  
-  // Set velocity into function
-    public void setVelocity(double Xvelocity, double Yvelocity) {
-        this.Xvelocity = Xvelocity;
-        this.Yvelocity = Yvelocity;
-    }
-  
-  // Add velocity 
-    public void addVelocity(double x, double y) {
-        this.Xvelocity += x;
-        this.Yvelocity += y;
-    }
-
-    public double getXVelocity() {
-        return Xvelocity;
-    }
-
-    public double getYVelocity() {
-        return Yvelocity;
-    }
-
-    public double getWidth() {
-        return width;
-    }
-  
-    public void render(Graphics g) {
-        g.drawImage(image, Xposition, Yposition);
-    }
-  
-  // Make boundary
-    public Rectangle2D getBoundary() {
-        return new Rectangle2D(Xposition, Yposition, width, height);
-    }
-
-    public boolean intersectsPipeTest(PipeTest s) {
-        return s.getBoundary().intersects(this.getBoundary());
-    }
-  
-  // Update position by formula: velocity * time 
-    public void update(double time) {
-        Xposition += Xvelocity * time;
-        Yposition += Yvelocity * time;
-    }
+    //  // Make boundary
+//    public Rectangle2D getBoundary() {
+//        return new Rectangle2D(X1, Y1, X2, Y2);
+//    }
+//
+//    public boolean intersectsPipeTest(PipeTest s) {
+//        return s.getBoundary().intersects(this.getBoundary());
+//    }
+//
+//  // Update position by formula: velocity * time
+//    public void update(double time) {
+//        Xposition += Xvelocity * time;
+//        Yposition += Yvelocity * time;
+//    }
 }

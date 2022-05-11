@@ -96,7 +96,7 @@ public class Game extends Frame implements KeyListener {
         }
         if(gameState == playGameState){
             bird.draw(bufG);
-
+            pipeControl.draw(bufG);
             if(bird.CheckHitGround())
             {
                 setGameState(gameOverState);
@@ -119,13 +119,13 @@ public class Game extends Frame implements KeyListener {
         g.drawImage(bufImg, 0, 0, null);
     }
     
-    public void setSounds() {
-        background = new Sound("/sound/background.mp3");
-        button = new Sound("/sound/button.mp3");
-        fie = new Sound("/sound/bird-fies-up.mp3");
-        play = new Sound("/sound/play-game.mp3");
-        die = new Sound("/sound/bird-dies.mp3");
-    }
+//    public void setSounds() {
+//        background = new Sound("/sound/background.mp3");
+//        button = new Sound("/sound/button.mp3");
+//        fie = new Sound("/sound/bird-fies-up.mp3");
+//        play = new Sound("/sound/play-game.mp3");
+//        die = new Sound("/sound/bird-dies.mp3");
+//    }
     
     @Override
     public void keyPressed(KeyEvent e) {
