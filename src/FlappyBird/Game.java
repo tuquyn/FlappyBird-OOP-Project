@@ -103,8 +103,9 @@ public class Game extends Frame implements KeyListener {
                 gameOver.show(true);
                 //score.NewScore("Test2");
             }
+            if(bird.CheckEatCoin(pipeControl))
+                score.score += 1;
             score.drawScore(bufG);
-            score.score += 1;
         }
 
         if(gameState == gameOverState){

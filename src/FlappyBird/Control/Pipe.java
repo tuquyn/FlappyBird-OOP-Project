@@ -20,6 +20,7 @@ public class Pipe {
     }
 
     public void update(Graphics g){
+        if(Xlocation == 0 )Xlocation = frameWidth;
         Xlocation -= SPEED;
         pipeUp.setXYlocation(Xlocation, Ylocation - heightPipe);
         pipeDown.setXYlocation(Xlocation, Ylocation + 3 * birdSize);
@@ -28,5 +29,9 @@ public class Pipe {
 
         coin.setX(Xlocation + birdSize / 2);
         coin.draw(g);
+    }
+
+    public Coin getCoin() {
+        return coin;
     }
 }

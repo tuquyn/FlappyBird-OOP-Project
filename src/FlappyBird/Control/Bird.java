@@ -1,5 +1,6 @@
 package FlappyBird.Control;
 
+import FlappyBird.Game;
 import FlappyBird.Util.Util;
 
 import java.awt.*;
@@ -114,5 +115,19 @@ public class Bird {
             return  true;
         }
         return  false;
+    }
+    public boolean CheckEatCoin(PipeControl o){
+        if(o.getPipes().isEmpty())return false;
+        for(Pipe p : o.getPipes()) {
+            Coin c = p.getCoin();
+            if(!c.isAppear())continue;
+            if(c.getX() <= x + birdSize && x + birdSize <= c.getX() + birdSize * 3 / 2
+                && ((c.getY() <= y && y <= c.getY() + birdSize * 3 / 2)
+                    || (c.getY() <= y + birdSize && y + birdSize <= c.getY() + birdSize * 3 / 2))){
+                c.setAppear(false);
+                return true;
+            }
+        }
+        return false;
     }
 }

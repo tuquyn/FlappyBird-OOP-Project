@@ -5,6 +5,11 @@ import java.util.ArrayList;
 
 public class PipeControl {
     private ArrayList<Pipe> pipes;
+
+    public ArrayList<Pipe> getPipes() {
+        return pipes;
+    }
+
     public PipeControl(){
         pipes = new ArrayList<>();
         init();

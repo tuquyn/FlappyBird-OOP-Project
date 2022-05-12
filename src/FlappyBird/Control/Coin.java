@@ -12,6 +12,7 @@ public class Coin {
     private int y;
     BufferedImage img;
     private int cnt;
+    private boolean appear;
 
     private boolean r;
     public Coin(int x, int y){
@@ -20,10 +21,19 @@ public class Coin {
         this.img = Util.loadBufferedImage(coinPATH);
         cnt = 0;
         r = true;
+        this.appear = true;
     }
 
     public void setX(int x) {
         this.x = x;
+    }
+
+    public void setAppear(boolean appear) {
+        this.appear = false;
+    }
+
+    public boolean isAppear() {
+        return appear;
     }
 
     public void draw(Graphics g){
@@ -35,6 +45,16 @@ public class Coin {
         }else
             if(--cnt == -1){r = true; cnt++;}
         BufferedImage dest = img.getSubimage((cnt / 2) * img.getWidth() / 6, 0, img.getWidth() / 6, img.getHeight());
-        g.drawImage(dest, x, y, birdSize * 3 / 2, birdSize * 3 / 2, null);
+        if(appear)
+            g.drawImage(dest, x, y, birdSize * 3 / 2, birdSize * 3 / 2, null);
+        g.drawRect(x, y, birdSize * 3 / 2, birdSize * 3 / 2);
+    }
+
+    public int getX() {
+        return x;
+    }
+
+    public int getY() {
+        return y;
     }
 }
