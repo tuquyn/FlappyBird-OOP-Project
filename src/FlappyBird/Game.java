@@ -88,7 +88,7 @@ public class Game extends Frame implements KeyListener {
         cloudControl.draw(bufG);
         if(gameState == welcomeState){
             welcome.draw(bufG);
-            bird.DrawWelcome(bufG);
+            bird.drawWelcome(bufG);
             if(buttonChoose == buttonThree)
             {
                 score.drawScoreBoard(bufG);
@@ -110,11 +110,9 @@ public class Game extends Frame implements KeyListener {
 
         if(gameState == gameOverState){
             System.out.println("Game Over");
-            gameState = welcomeState;
-            bird.Reset();
         }
-        bufG.setColor(Color.RED);
-        bufG.drawLine(0,400,frameWidth, 400);
+//        bufG.setColor(Color.RED);
+//        bufG.drawLine(0,400,frameWidth, 400);
 
 
         g.drawImage(bufImg, 0, 0, null);
@@ -155,6 +153,7 @@ public class Game extends Frame implements KeyListener {
                     }
                 }
                 if(e.getKeyCode()  == KeyEvent.VK_SPACE && buttonChoose == buttonTwo){
+                    bird.setImg();
                     setGameState(playGameState);
                 }
                 break;
@@ -167,6 +166,9 @@ public class Game extends Frame implements KeyListener {
                 break;
             case gameOverState:
                 if(e.getKeyCode()  == KeyEvent.VK_SPACE){
+                    gameState = welcomeState;
+                    bird.Reset();
+                    pipeControl.init();
                 }
                 break;
         }

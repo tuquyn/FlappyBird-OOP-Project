@@ -20,7 +20,6 @@ public class Pipe {
     }
 
     public void update(Graphics g){
-        if(Xlocation == 0 )Xlocation = frameWidth;
         Xlocation -= SPEED;
         pipeUp.setXYlocation(Xlocation, Ylocation - heightPipe);
         pipeDown.setXYlocation(Xlocation, Ylocation + 3 * birdSize);

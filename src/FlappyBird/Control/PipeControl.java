@@ -20,6 +20,7 @@ public class PipeControl {
         }
     }
     public void init(){
+        pipes.clear();
         Pipe p = new Pipe(100);
         pipes.add(p);
     }

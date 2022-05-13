@@ -29,7 +29,7 @@ public class Coin {
     }
 
     public void setAppear(boolean appear) {
-        this.appear = false;
+        this.appear = appear;
     }
 
     public boolean isAppear() {
@@ -47,7 +47,7 @@ public class Coin {
         BufferedImage dest = img.getSubimage((cnt / 2) * img.getWidth() / 6, 0, img.getWidth() / 6, img.getHeight());
         if(appear)
             g.drawImage(dest, x, y, birdSize * 3 / 2, birdSize * 3 / 2, null);
-        g.drawRect(x, y, birdSize * 3 / 2, birdSize * 3 / 2);
+//        g.drawRect(x, y, birdSize * 3 / 2, birdSize * 3 / 2);
     }
 
     public int getX() {

@@ -1,6 +1,5 @@
 package FlappyBird.Control;
 
-import FlappyBird.Game;
 import FlappyBird.Util.Util;
 
 import java.awt.*;
@@ -23,55 +22,46 @@ public class Bird {
 
     public void setStatus(int status) {
         this.status = status;
-        if(status == 0)
-        {
-          cnt = 1;
-        }
-        else
-        {
-            cnt = -1;
-        }
+        if(status == 0) cnt = 1; else cnt = -1;
     }
 
     public Bird(){
+        Reset();
+    }
+    public void Reset(){
         status = 0;
         coutFrameUp = 0;
         cnt = 1;
         index = 0;
+        img = new BufferedImage[birdFlyWelcome.length];
+        for(int i = 0; i < img.length; i++)
+            img[i] = Util.loadBufferedImage(birdFlyWelcome[i]);
+        x = frameWidth / 20;
+        y = frameHeight / 2;
+    }
+
+    public void setImg() {
         img = new BufferedImage[BIRD_PATH[birdType].length];
         for(int i = 0; i < img.length; i++)
             img[i] = Util.loadBufferedImage(BIRD_PATH[birdType][i]);
-        x = frameWidth / 20;
-        y = frameHeight / 2;
     }
-    public void Reset()
-    {
-        status = 0;
-        coutFrameUp = 0;
-        cnt = 1;
-        index = 0;
-        x = frameWidth / 20;
-        y = frameHeight / 2;
-    }
+
     public void draw(Graphics g){
-        if(status== 1)
-        {drawUp(g);}
-        else if(status == 0)
-        {drawDown(g);}
-        else if (status == 2)
-        {
-            DrawDie(g);
-        }
-
-
+        if(status== 1) drawUp(g);
+            else
+                if(status == 0) drawDown(g);
+                    else
+                        if (status == 2) drawDie(g);
     }
-    public void DrawDie(Graphics g)
+
+    public void drawDie(Graphics g)
     {
-        g.drawImage(img[img.length -1], x, y, birdWidth, birdHeight, null);
+        g.drawImage(img[img.length-1], x, y, birdWidth, birdHeight, null);
     }
-    public  void DrawWelcome(Graphics g)
+
+    public  void drawWelcome(Graphics g)
     {
-        g.drawImage(img[index+= cnt], x, y, birdWidth, birdHeight, null);
+        g.drawImage(img[index+=cnt], x, y, birdWidth, birdHeight, null);
         if(index == 9)cnt = -1;
         if(index == 0)cnt = 1;
     }
@@ -87,8 +77,6 @@ public class Bird {
         { setStatus(0);
             coutFrameUp = 0;
         }
-
-
     }
     public void drawDown(Graphics g){
         if(index + 1 < img.length)
@@ -117,16 +105,16 @@ public class Bird {
         return  false;
     }
     public boolean CheckEatCoin(PipeControl o){
-        if(o.getPipes().isEmpty())return false;
         for(Pipe p : o.getPipes()) {
             Coin c = p.getCoin();
             if(!c.isAppear())continue;
-            if(c.getX() <= x + birdSize && x + birdSize <= c.getX() + birdSize * 3 / 2
-                && ((c.getY() <= y && y <= c.getY() + birdSize * 3 / 2)
-                    || (c.getY() <= y + birdSize && y + birdSize <= c.getY() + birdSize * 3 / 2))){
+            if(c.getX() <= x + birdWidth && x + birdWidth <= c.getX() + birdSize * 3 / 2
+                && ((c.getY() <= y && y <= c.getY() + birdHeight * 3 / 2)
+                    || (c.getY() <= y + birdHeight && y + birdHeight <= c.getY() + birdSize * 3 / 2))){
                 c.setAppear(false);
                 return true;
             }
+            break;
         }
         return false;
     }
