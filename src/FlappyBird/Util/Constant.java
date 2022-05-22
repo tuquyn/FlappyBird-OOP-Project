@@ -63,10 +63,10 @@ public class Constant {
 
     // BIRD_PATH[i][0] = up, [i][9] = dead, size = 10
     public static final String[][]BIRD_PATH = {
-            {"src/resources/bird0/up.png","src/resources/bird3/down_0.png","src/resources/bird0/down_1.png"
-            ,"src/resources/bird0/down_2.png","src/resources/bird0/down_3.png","src/resources/bird0/down_4.png"
-            ,"src/resources/bird0/down_5.png","src/resources/bird0/down_6.png","src/resources/bird0/down_7.png"
-            ,"src/resources/bird0/dead.png"},
+            {"src/resources/bird0/up.png","src/resources/bird0/down_0.png","src/resources/bird0/down_1.png"
+                    ,"src/resources/bird0/down_2.png","src/resources/bird0/down_3.png","src/resources/bird0/down_4.png"
+                    ,"src/resources/bird0/down_5.png","src/resources/bird0/down_6.png","src/resources/bird0/down_7.png"
+                    ,"src/resources/bird0/dead.png"},
             {"src/resources/bird3/up.png","src/resources/bird3/down_0.png","src/resources/bird3/down_1.png"
                     ,"src/resources/bird3/down_2.png","src/resources/bird3/down_3.png","src/resources/bird3/down_4.png"
                     ,"src/resources/bird3/down_5.png","src/resources/bird3/down_6.png","src/resources/bird3/down_7.png"

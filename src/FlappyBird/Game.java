@@ -13,7 +13,7 @@ import java.awt.image.BufferedImage;
 import static FlappyBird.Util.Constant.*;
 
 public class Game extends Frame implements KeyListener {
-    private static int gameState;
+    public static int gameState;
     private BackGround backGround;
     private Bird bird;
 
@@ -109,7 +109,9 @@ public class Game extends Frame implements KeyListener {
         }
 
         if(gameState == gameOverState){
-            System.out.println("Game Over");
+            pipeControl.draw(bufG);
+            bird.drawDie(bufG);
+            gameOver.draw(bufG);
         }
 //        bufG.setColor(Color.RED);
 //        bufG.drawLine(0,400,frameWidth, 400);

@@ -56,7 +56,7 @@ public class Bird {
 
     public void drawDie(Graphics g)
     {
-        g.drawImage(img[img.length-1], x, y, birdWidth, birdHeight, null);
+        g.drawImage(img[index], x, y, birdWidth, birdHeight, null);
     }
 
     public  void drawWelcome(Graphics g)
@@ -66,14 +66,13 @@ public class Bird {
         if(index == 0)cnt = 1;
     }
     public void drawUp(Graphics g){
-
-        y-= 12;
+        y-= FPS / 5;
         CheckHitTop();
         index = 0;
         coutFrameUp += 1;
 
         g.drawImage(img[index], x, y, birdWidth, birdHeight, null);
-        if(coutFrameUp > 5)
+        if(coutFrameUp > (FPS / 12))
         { setStatus(0);
             coutFrameUp = 0;
         }
@@ -83,12 +82,12 @@ public class Bird {
         {
             index += 1;
         }
-        y+= 8;
+        y+= FPS / 15 * 2;
         g.drawImage(img[index], x, y, birdWidth, birdHeight, null);
     }
     public boolean CheckHitGround()
     {
-        if(y > 400 - img[0].getHeight())
+        if(y + birdHeight > frameHeight)
         {
             status = 2;
             return  true;
@@ -97,7 +96,7 @@ public class Bird {
     }
     public boolean CheckHitTop()
     {
-        if(y <= img[0].getHeight())
+        if(y <= birdHeight)
         {
             setStatus(0);
             return  true;

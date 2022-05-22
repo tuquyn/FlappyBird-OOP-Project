@@ -2,6 +2,7 @@ package FlappyBird.Control;
 
 import java.awt.*;
 
+import static FlappyBird.Game.gameState;
 import static FlappyBird.Util.Constant.*;
 
 public class Pipe {
@@ -20,7 +21,7 @@ public class Pipe {
     }
 
     public void update(Graphics g){
-        Xlocation -= SPEED;
+        if(gameState == playGameState) Xlocation -= SPEED;
         pipeUp.setXYlocation(Xlocation, Ylocation - heightPipe);
         pipeDown.setXYlocation(Xlocation, Ylocation + 3 * birdSize);
         pipeUp.draw(g);
@@ -32,5 +33,9 @@ public class Pipe {
 
     public Coin getCoin() {
         return coin;
+    }
+
+    public int getYlocation() {
+        return Ylocation;
     }
 }

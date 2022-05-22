@@ -4,6 +4,7 @@ import java.awt.*;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.PortUnreachableException;
 import java.nio.charset.Charset;
 import java.nio.file.Files;
@@ -39,8 +40,15 @@ public class Score {
         }
     }
     public void drawScore(Graphics g){
-        g.setFont(new Font("TimesRoman", Font.PLAIN, 25));
-        g.drawString("Score: "+score, frameWidth/2 , 50);
+        try{
+            InputStream stream = ClassLoader.getSystemClassLoader().getResourceAsStream("resources/Mas Bro Demo.ttf");
+            Font font = Font.createFont(Font.TRUETYPE_FONT, stream).deriveFont(48f);
+            g.setFont(font);
+            g.drawString("Score: "+score, frameWidth/2 , 80);
+        }catch (Exception e) {
+            g.setFont(new Font("TimesRoman", Font.PLAIN, 25));
+            g.drawString("Score: " + score, frameWidth / 2, 80);
+        }
     }
     public void NewScore(String playerName)
     {

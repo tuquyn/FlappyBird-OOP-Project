@@ -5,6 +5,9 @@ import FlappyBird.Game;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.InputStream;
+
+import static FlappyBird.Util.Constant.frameWidth;
 
 public class GameOver extends Frame implements ActionListener {
     TextField tf;
@@ -36,5 +39,16 @@ public class GameOver extends Frame implements ActionListener {
             show(false);
         }
     }
+    public void draw(Graphics g){
+        try{
+            InputStream stream = ClassLoader.getSystemClassLoader().getResourceAsStream("resources/DJB Ransom Note.ttf");
 
+            Font font = Font.createFont(Font.TRUETYPE_FONT, stream).deriveFont(13);
+            g.setFont(font);
+            g.drawString("Game Over", frameWidth / 2 , 100);
+        }catch (Exception e) {
+            g.setFont(new Font("TimesRoman", Font.PLAIN, 100));
+            g.drawString("Game Over", frameWidth / 2, 100);
+        }
+    }
 }
