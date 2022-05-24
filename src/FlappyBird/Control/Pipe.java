@@ -35,6 +35,10 @@ public class Pipe {
         return coin;
     }
 
+    public int getXlocation() {
+        return Xlocation;
+    }
+
     public int getYlocation() {
         return Ylocation;
     }

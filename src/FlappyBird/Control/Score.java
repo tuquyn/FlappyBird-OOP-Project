@@ -57,7 +57,7 @@ public class Score {
             String[] data = scoreBoard.get(i).split(":");
             String pName = data[0];
             int pScore = Integer.parseInt(data[1]);
-            if(pScore <= score)
+            if(pScore <= score || true) // update later
             {
                 scoreBoard.add(i,playerName+":"+score);
                 break;

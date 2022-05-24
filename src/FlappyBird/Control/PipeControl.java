@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import java.util.Random;
 
 import static FlappyBird.Util.Constant.*;
-import static java.lang.Math.max;
 
 public class PipeControl {
     private ArrayList<Pipe> pipes;
@@ -24,19 +23,23 @@ public class PipeControl {
         n = x + y + 3;
     }
     public void draw(Graphics g){
-        for(Pipe pipe : pipes) {
+        for(int i = 0; i < pipes.size();) {
+            Pipe pipe = pipes.get(i);
             pipe.update(g);
+            if(pipe.getXlocation() < -widthPipe) {
+                pipes.remove(i);
+            }else i++;
         }
         if(n-- == 0 && playGameState != gameOverState){
             int h = pipes.get(pipes.size() - 1).getYlocation();
             int h_new = h - FPS * x + 2 * FPS * y / 15;
-            if(h_new <= birdSize * 2 || h_new >= frameHeight - birdSize * 2) pipes.add(new Pipe(200));
+            if(h_new <= birdSize * 2 || h_new >= frameHeight - birdSize * 5 / 2) pipes.add(new Pipe(200));
                 else
             pipes.add(new Pipe(h_new));
             Random rand = new Random();
             try {
                 x = rand.nextInt(1, pipes.get(pipes.size() - 1).getYlocation() / FPS);
-                y = rand.nextInt(widthPipe * 15 / 2 / FPS, max(widthPipe * 15 / 2 / FPS, (400 - pipes.get(pipes.size() - 1).getYlocation()) * 2 / 15));
+                y = rand.nextInt(widthPipe * 15 / 2 / FPS * 2, (400 - pipes.get(pipes.size() - 1).getYlocation()) * 2 / 15);
                 n = x + y + 3;
             }catch(Exception e){
                 x = 2; y = 10;

@@ -113,7 +113,6 @@ public class Bird {
                 c.setAppear(false);
                 return true;
             }
-            break;
         }
         return false;
     }
