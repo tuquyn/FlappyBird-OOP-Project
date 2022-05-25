@@ -24,7 +24,13 @@ public class PipeControl {
     }
     public void draw(Graphics g){
         for(int i = 0; i < pipes.size();) {
-            Pipe pipe = pipes.get(i);
+            Pipe pipe;
+            try{
+                pipe = pipes.get(i);
+            }catch(Exception ex){
+                init();
+                return;
+            }
             pipe.update(g);
             if(pipe.getXlocation() < -widthPipe) {
                 pipes.remove(i);

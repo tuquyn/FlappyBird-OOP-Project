@@ -99,7 +99,10 @@ public class Game extends Frame implements KeyListener {
             pipeControl.draw(bufG);
             if(bird.CheckHitGround())
             {
+                gameOver = new GameOver();
                 setGameState(gameOverState);
+                gameOver.setLabel1(score.score);
+                if(score.score > score.getBest()) gameOver.setBest();
                 gameOver.show(true);
                 //score.NewScore("Test2");
             }
@@ -144,14 +147,15 @@ public class Game extends Frame implements KeyListener {
                     if(buttonChoose == buttonOne){
                         birdType++; birdType %= 4;
                     }else {
-                            // buttonChoose == buttonThree => rank
+                            score.noScore = ((score.noScore - 1) + score.scoreBoard.size() ) % score.scoreBoard.size();
+
                     }
                 }
                 if(e.getKeyCode()  == KeyEvent.VK_DOWN){
                     if(buttonChoose == buttonOne){
                         birdType--; birdType = (birdType + 4) % 4;
                     }else {
-                        // buttonChoose == buttonThree => rank
+                        score.noScore = ((score.noScore + 1) + score.scoreBoard.size() ) % score.scoreBoard.size();
                     }
                 }
                 if(e.getKeyCode()  == KeyEvent.VK_SPACE && buttonChoose == buttonTwo){
@@ -170,7 +174,10 @@ public class Game extends Frame implements KeyListener {
                 if(e.getKeyCode()  == KeyEvent.VK_SPACE){
                     gameState = welcomeState;
                     bird.Reset();
-                    pipeControl.init();
+                    birdType = 0;
+                    pipeControl = new PipeControl();
+                    gameOver = new GameOver();
+                    score = new Score();
                 }
                 break;
         }

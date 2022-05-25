@@ -21,7 +21,7 @@ public class Pipe {
     }
 
     public void update(Graphics g){
-        if(gameState == playGameState) Xlocation -= SPEED;
+        if(gameState == playGameState && Xlocation >= -2 * widthPipe) Xlocation -= SPEED;
         pipeUp.setXYlocation(Xlocation, Ylocation - heightPipe);
         pipeDown.setXYlocation(Xlocation, Ylocation + 3 * birdSize);
         pipeUp.draw(g);

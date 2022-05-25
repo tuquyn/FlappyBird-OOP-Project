@@ -1,7 +1,9 @@
 package FlappyBird.Control;
 
 import FlappyBird.Game;
+import FlappyBird.Util.Util;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.plaf.ColorUIResource;
 import javax.swing.plaf.metal.DefaultMetalTheme;
@@ -9,6 +11,7 @@ import javax.swing.plaf.metal.MetalLookAndFeel;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
 import java.io.InputStream;
 import java.util.Random;
 
@@ -16,25 +19,50 @@ import static FlappyBird.Util.Constant.*;
 
 public class GameOver extends JFrame implements ActionListener {
     TextField tf;
-    Button bthSave;
+    JButton bthSave;
+    JLabel label;
+    JLabel label1;
+    JLabel best;
 
+    public void setLabel1(long score) {
+        label1 = new JLabel("You got "+score+ " scores!");
+        Font newLabelFont=new Font(label.getFont().getName(),Font.BOLD,label.getFont().getSize());
+        label1.setFont(newLabelFont);
+        label1.setBounds(130, 80, 200, 20);
+        add(label1);
+    }
+
+    public void setBest() {
+        best = new JLabel("New best!");
+        Font newLabelFont=new Font(label.getFont().getName(),Font.BOLD,label.getFont().getSize());
+        best.setFont(newLabelFont);
+        best.setForeground(Color.WHITE);
+        best.setBounds(20, 80, 100, 30);
+        add(best);
+    }
 
     public GameOver() {
-//        JLabel label1 = new JLabel("Test");
-//        label1.setLocation(50, 50);
-//        add(label1);
-//        add(new JLabel("Hello World"), BorderLayout.CENTER);
+
+        label = new JLabel("Congratulations!");
+        Font newLabelFont=new Font(label.getFont().getName(),Font.BOLD,label.getFont().getSize());
+        label.setFont(newLabelFont);
+        label.setBounds(5, 50, 100, 20);
         tf = new TextField();
-        tf.setBounds(100, 50, 150, 20);
-        bthSave = new Button("Save");
-        bthSave.setBounds(50, 200, 50, 50);
+        tf.setBackground(Color.LIGHT_GRAY);
+        tf.setForeground(Color.blue);
+        tf.setBounds(105, 50, 150, 20);
+        bthSave = new JButton("Save");
+        bthSave.setBorder(BorderFactory.createEmptyBorder());
+        bthSave.setContentAreaFilled(false);
+        bthSave.setFocusable(false);
+        bthSave.setBounds(100, 130, 100, 50);
         bthSave.addActionListener(this);
         add(bthSave);
         add(tf);
-        setSize(300, 300);
+        add(label);
+        setSize(300, 210);
         setLocation(frameX + frameWidth / 2 - 150, frameY + frameHeight / 2 - 50);
 
-        setIconImage(img.getImage());
         setLayout(null);
         setResizable(false);
         setVisible(false);
@@ -42,7 +70,7 @@ public class GameOver extends JFrame implements ActionListener {
 
         setUndecorated(true);
         getContentPane().setBackground(Color.CYAN);
-        getRootPane().setWindowDecorationStyle(JRootPane.FRAME);
+        //getRootPane().setWindowDecorationStyle(JRootPane.FRAME);
         MetalLookAndFeel.setCurrentTheme(new MyDefaultMetalTheme());
         try {
             UIManager.setLookAndFeel(new MetalLookAndFeel());
@@ -53,15 +81,19 @@ public class GameOver extends JFrame implements ActionListener {
 
     }
 
-    public void Show(boolean isVisible) {
-        setVisible(isVisible);
-    }
 
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == bthSave) {
             Game.score.NewScore(tf.getText());
+            tf.setText("");
             show(false);
+            remove(label1);
+            try{
+                remove(best);
+            }catch(Exception ex){
+
+            }
         }
     }
 
