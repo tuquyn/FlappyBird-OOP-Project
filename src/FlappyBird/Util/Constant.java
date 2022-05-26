@@ -1,5 +1,7 @@
 package FlappyBird.Util;
 
+import FlappyBird.Control.Sound;
+
 import javax.swing.*;
 
 public class Constant {
@@ -82,4 +84,10 @@ public class Constant {
     };
     // pipe
     public static final String PIPE_PATH = "src/resources/wood.png";
+    // Sound
+    public static final Sound BG = new Sound("src/resources/sound/background.mp3",true);
+    public static final Sound BUTTON = new Sound("src/resources/sound/button.mp3",false);
+    public static final Sound FLYUP = new Sound("src/resources/sound/Ting.mp3",false);
+    public static final Sound PLAY = new Sound("src/resources/sound/Bird Sms.mp3",false);
+    public static final Sound DIE = new Sound("src/resources/sound/bird-dies.mp3",false);
 }

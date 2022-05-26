@@ -3,7 +3,6 @@ package FlappyBird;
 import FlappyBird.Control.*;
 
 import java.awt.*;
-import java.awt.event.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.WindowAdapter;
@@ -63,6 +62,7 @@ public class Game extends Frame implements KeyListener {
         welcome = new Welcome();
         gameOver = new GameOver();
         score = new Score();
+        background.start();
         new Thread(() ->{
             while(true){
                 repaint();
@@ -105,9 +105,16 @@ public class Game extends Frame implements KeyListener {
                 if(score.score > score.getBest()) gameOver.setBest();
                 gameOver.show(true);
                 //score.NewScore("Test2");
+                die.start();
+                die = new Sound("",false);
+                die.initialize(DIE);// also for hit pipe
             }
-            if(bird.CheckEatCoin(pipeControl))
+            if(bird.CheckEatCoin(pipeControl)) {
                 score.score += 1;
+                fie.start();
+                fie = new Sound("",false);
+                fie.initialize(FLYUP);
+            }
             score.drawScore(bufG);
         }
 
@@ -122,15 +129,12 @@ public class Game extends Frame implements KeyListener {
 
         g.drawImage(bufImg, 0, 0, null);
     }
-    
-//    public void setSounds() {
-//        background = new Sound("/sound/background.mp3");
-//        button = new Sound("/sound/button.mp3");
-//        fie = new Sound("/sound/bird-fies-up.mp3");
-//        play = new Sound("/sound/play-game.mp3");
-//        die = new Sound("/sound/bird-dies.mp3");
-//    }
-    
+    private Sound background = BG;
+    private Sound button = BUTTON;
+    private Sound fie = FLYUP; // change sound birdFly into birdEatCoin
+    private Sound play = PLAY;
+    private Sound die = DIE;
+
     @Override
     public void keyPressed(KeyEvent e) {
         switch (gameState) {
@@ -161,18 +165,24 @@ public class Game extends Frame implements KeyListener {
                 if(e.getKeyCode()  == KeyEvent.VK_SPACE && buttonChoose == buttonTwo){
                     bird.setImg();
                     setGameState(playGameState);
+                    play.start();
+                    play = new Sound("",false);
+                    play.initialize(PLAY);
+                }else {
+                    button.start();
+                    button = new Sound("",false);
+                    button.initialize(BUTTON);
                 }
                 break;
             case playGameState:
                 if (e.getKeyCode() == KeyEvent.VK_SPACE && keySpaceReleased){
                     keySpaceReleased = false;
                     setBirdStatus(1);
-
                 }
                 break;
             case gameOverState:
                 if(e.getKeyCode()  == KeyEvent.VK_SPACE){
-                    gameState = welcomeState;
+                    setGameState(welcomeState);
                     bird.Reset();
                     birdType = 0;
                     pipeControl = new PipeControl();
