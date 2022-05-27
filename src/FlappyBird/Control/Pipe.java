@@ -31,6 +31,15 @@ public class Pipe {
         coin.draw(g);
     }
 
+    public PipeTest getPipeDown() {
+        return pipeDown;
+    }
+
+    public PipeTest getPipeUp() {
+        return pipeUp;
+    }
+
+
     public Coin getCoin() {
         return coin;
     }
