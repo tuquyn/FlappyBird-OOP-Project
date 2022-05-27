@@ -1,11 +1,9 @@
 package FlappyBird.Control;
 
-import FlappyBird.Util.Constant.*;
 import FlappyBird.Util.Util;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
-import java.awt.geom.Rectangle2D;
 
 import static FlappyBird.Util.Constant.*;
 
@@ -38,14 +36,14 @@ public class PipeTest {
 //    }
     public  int getWidth()
     {
-        return   image.getWidth();
+        return   65;
     }
     public  int getHeigth()
     {
-        return   image.getHeight();
+        return   heightPipe - 3;
     }
 public int getX() {
-    return Xlocation;
+    return Xlocation + 18;
 }
 
     public int getY() {
@@ -56,6 +54,7 @@ public int getX() {
 
     public void draw(Graphics g) {
         g.drawImage(image, Xlocation, Ylocation, widthPipe, heightPipe, null);
+//        g.drawRect(getX(),getY(),getWidth(),getHeigth());
     }
 
     public void setXYlocation(int xlocation,int ylocation) {

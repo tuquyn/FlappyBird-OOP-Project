@@ -1,10 +1,8 @@
 package FlappyBird.Control;
 
 import FlappyBird.Util.Util;
-import org.w3c.dom.css.Rect;
 
 import java.awt.*;
-import java.awt.geom.Rectangle2D;
 import java.awt.image.BufferedImage;
 
 import static FlappyBird.Util.Constant.*;
@@ -54,11 +52,13 @@ public class Bird {
                 if(status == 0) drawDown(g);
                     else
                         if (status == 2) drawDie(g);
+//        g.drawRect(x + 2, y + 2, birdWidth - 4, birdHeight-4);
     }
 
     public void drawDie(Graphics g)
     {
         g.drawImage(img[index], x, y, birdWidth, birdHeight, null);
+//        g.drawRect(x + 2, y + 2, birdWidth - 4, birdHeight-4);
     }
 
     public  void drawWelcome(Graphics g)
@@ -126,11 +126,11 @@ public class Bird {
         for(Pipe p : o.getPipes()) {
             PipeTest up = p.getPipeUp();
             PipeTest down = p.getPipeDown();
-            if(CheckRectCollison(new Rectangle(up.getX(),up.getY(),up.getWidth(),up.getHeigth()),new Rectangle(x,y,birdWidth,birdHeight)))
+            if(CheckRectCollison(new Rectangle(up.getX(),up.getY(),up.getWidth(),up.getHeigth()),new Rectangle(x+2,y+2,birdWidth - 4,birdHeight - 4)))
             {
                 return true;
             }
-            if(CheckRectCollison(new Rectangle(down.getX(),down.getY(),down.getWidth(),down.getHeigth()),new Rectangle(x,y,birdWidth,birdHeight)))
+            if(CheckRectCollison(new Rectangle(down.getX(),down.getY(),down.getWidth(),down.getHeigth()),new Rectangle(x+2,y+2,birdWidth - 4,birdHeight - 4)))
             {
                 return true;
             }
