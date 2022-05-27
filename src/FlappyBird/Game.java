@@ -97,7 +97,7 @@ public class Game extends Frame implements KeyListener {
         if(gameState == playGameState){
             bird.draw(bufG);
             pipeControl.draw(bufG);
-            if(bird.CheckHitGround())
+            if(bird.CheckHitGround()||bird.CheckHitPipe(pipeControl))
             {
                 gameOver = new GameOver();
                 setGameState(gameOverState);
