@@ -36,6 +36,23 @@ public class PipeTest {
 //        this.Xvelocity += x;
 //        this.Yvelocity += y;
 //    }
+    public  int getWidth()
+    {
+        return   image.getWidth();
+    }
+    public  int getHeigth()
+    {
+        return   image.getHeight();
+    }
+public int getX() {
+    return Xlocation;
+}
+
+    public int getY() {
+        return Ylocation;
+    }
+
+
 
     public void draw(Graphics g) {
         g.drawImage(image, Xlocation, Ylocation, widthPipe, heightPipe, null);

@@ -1,8 +1,10 @@
 package FlappyBird.Control;
 
 import FlappyBird.Util.Util;
+import org.w3c.dom.css.Rect;
 
 import java.awt.*;
+import java.awt.geom.Rectangle2D;
 import java.awt.image.BufferedImage;
 
 import static FlappyBird.Util.Constant.*;
@@ -116,4 +118,36 @@ public class Bird {
         }
         return false;
     }
+    public boolean CheckRectCollison(Rectangle r1, Rectangle r2)
+    {
+        return r1.intersects(r2);
+    }
+    public boolean CheckHitPipe(PipeControl o){
+        for(Pipe p : o.getPipes()) {
+            PipeTest up = p.getPipeUp();
+            PipeTest down = p.getPipeDown();
+            if(CheckRectCollison(new Rectangle(up.getX(),up.getY(),up.getWidth(),up.getHeigth()),new Rectangle(x,y,birdWidth,birdHeight)))
+            {
+                return true;
+            }
+            if(CheckRectCollison(new Rectangle(down.getX(),down.getY(),down.getWidth(),down.getHeigth()),new Rectangle(x,y,birdWidth,birdHeight)))
+            {
+                return true;
+            }
+//            if(up.getX() <= x + birdWidth && x + birdWidth <= up.getX() + birdSize * 3 / 2
+//                    && ((up.getY() <= y && y <= up.getY() + birdHeight * 3 / 2)
+//                    || (up.getY() <= y + birdHeight && y + birdHeight <= up.getY() + birdSize * 3 / 2))){
+//
+//                return true;
+//            }
+//            if(down.getX() <= x + birdWidth && x + birdWidth <= down.getX() + birdSize * 3 / 2
+//                    && ((down.getY() <= y && y <= down.getY() + birdHeight * 3 / 2)
+//                    || (down.getY() <= y + birdHeight && y + birdHeight <= down.getY() + birdSize * 3 / 2))){
+//
+//                return true;
+//            }
+        }
+        return false;
+    }
+
 }
