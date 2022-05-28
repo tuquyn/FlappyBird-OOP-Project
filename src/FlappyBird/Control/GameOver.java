@@ -1,9 +1,7 @@
 package FlappyBird.Control;
 
 import FlappyBird.Game;
-import FlappyBird.Util.Util;
 
-import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.plaf.ColorUIResource;
 import javax.swing.plaf.metal.DefaultMetalTheme;
@@ -11,9 +9,7 @@ import javax.swing.plaf.metal.MetalLookAndFeel;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
 import java.io.InputStream;
-import java.util.Random;
 
 import static FlappyBird.Util.Constant.*;
 
@@ -101,12 +97,13 @@ public class GameOver extends JFrame implements ActionListener {
     private int x = frameWidth;
 
     public void draw(Graphics g) {
-        Random rand = new Random();
-        float red = rand.nextFloat();
-        float green = rand.nextFloat();
-        float blue = rand.nextFloat();
-        Color randomColor = new Color(red, green, blue);
-        g.setColor(randomColor);
+//        Random rand = new Random();
+//        float red = rand.nextFloat();
+//        float green = rand.nextFloat();
+//        float blue = rand.nextFloat();
+//        Color randomColor = new Color(red, green, blue);
+//        g.setColor(randomColor);
+        g.setColor((Color.WHITE));
 
         try {
             InputStream stream = ClassLoader.getSystemClassLoader().getResourceAsStream("resources/DJB Ransom Note.ttf");
