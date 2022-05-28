@@ -181,11 +181,12 @@ public class Game extends Frame implements KeyListener {
                 }
                 break;
             case gameOverState:
-                if(e.getKeyCode()  == KeyEvent.VK_SPACE){
+                if(e.getKeyCode()  == KeyEvent.VK_ENTER){
                     setGameState(welcomeState);
                     bird.Reset();
                     birdType = 0;
                     pipeControl = new PipeControl();
+                    gameOver.show(false);
                     gameOver = new GameOver();
                     score = new Score();
                 }

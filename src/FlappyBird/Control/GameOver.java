@@ -103,26 +103,38 @@ public class GameOver extends JFrame implements ActionListener {
 //        float blue = rand.nextFloat();
 //        Color randomColor = new Color(red, green, blue);
 //        g.setColor(randomColor);
-        g.setColor((Color.WHITE));
-
+//        try {
+//            InputStream stream = ClassLoader.getSystemClassLoader().getResourceAsStream("resources/DJB Ransom Note.ttf");
+//            Font font;
+//                g.setColor((Color.BLACK));
+//                font = Font.createFont(Font.TRUETYPE_FONT, stream).deriveFont(100f);
+//            g.setFont(font);
+//
+//            g.drawString("Game Over", frameWidth / 3 - font.getSize(), font.getSize() * 2);
+//        } catch (Exception e) {
+//            g.setFont(new Font("TimesRoman", Font.PLAIN, 100));
+//            g.drawString("Game Over", frameWidth / 2, 100);
+//
+//        }
         try {
             InputStream stream = ClassLoader.getSystemClassLoader().getResourceAsStream("resources/DJB Ransom Note.ttf");
             Font font;
-            if (i) {
+                g.setColor((Color.BLACK));
                 font = Font.createFont(Font.TRUETYPE_FONT, stream).deriveFont(98f);
-            } else {
-                font = Font.createFont(Font.TRUETYPE_FONT, stream).deriveFont(100f);
-            }
             g.setFont(font);
-            g.drawString("Game Over", frameWidth / 3 - font.getSize(), font.getSize() * 2);
+
+//            g.drawString("Game Over", frameWidth / 3 - font.getSize(), font.getSize() * 2);
+            g.setFont(new Font("TimesRoman", Font.PLAIN, 100));
+            g.drawString("Game Over", frameWidth / 4, 150);
         } catch (Exception e) {
             g.setFont(new Font("TimesRoman", Font.PLAIN, 100));
             g.drawString("Game Over", frameWidth / 2, 100);
+
         }
 
 
         try {
-            String str = "PRESS space TO play AGAIN";
+            String str = "PRESS enter TO play AGAIN";
             g.setColor(Color.WHITE);
             InputStream stream = ClassLoader.getSystemClassLoader().getResourceAsStream("resources/UchronyCube-Bold-FFP.ttf");
             Font font = Font.createFont(Font.TRUETYPE_FONT, stream).deriveFont(30f);
