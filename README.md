@@ -31,8 +31,7 @@
 **Launch:**  
 <sub> Instruction: in Intellij, click File > Project Structure > Modules > Add File jar (JLayer)</sub>
 - Game entrance is `FlappyBird-OOP-Project\src\FlappyBird\Main.java` run `main method` directly.
-- Use the Command Line java -jar FlappyBird.jar to run game.
-
+- Use the Command Line java -jar FlappyBird-OOP-Project.jar to run game.
 
 **The project "Flappy Bird":**
 > 1. The rules:
@@ -75,8 +74,11 @@ Team Commits in github: https://github.com/tuquyn/FlappyBird-OOP-Project/commits
   (Framework, Multi-threading)
 * Presentation: https://www.canva.com/design/DAFB5IImlCo/jpikYb-2ybf4Wzp1LVb3eQ/view?utm_content=DAFB5IImlCo&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink
 
-* Demo:  
+* Demo:
+[![IMAGE ALT TEXT HERE](https://github.com/tuquyn/FlappyBird-OOP-Project/blob/master/src/resources/icon.png)](https://youtu.be/DRmF7pDvQPs)
+
+
 * UML Diagram:  
 
 * **Reference:**  
-https://github.com/sunzhichao/FlappyBird
+https://github.com/*s*unzhichao/FlappyBird
