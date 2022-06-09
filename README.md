@@ -81,4 +81,4 @@ Team Commits in github: https://github.com/tuquyn/FlappyBird-OOP-Project/commits
 * UML Diagram:  
 
 * **Reference:**  
-https://github.com/*s*unzhichao/FlappyBird
+https://github.com/sunzhichao/FlappyBird
