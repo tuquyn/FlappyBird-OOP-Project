@@ -75,7 +75,7 @@ Team Commits in github: https://github.com/tuquyn/FlappyBird-OOP-Project/commits
 * Presentation: https://www.canva.com/design/DAFB5IImlCo/jpikYb-2ybf4Wzp1LVb3eQ/view?utm_content=DAFB5IImlCo&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink
 
 * Demo:
-[![IMAGE ALT TEXT HERE](https://github.com/tuquyn/FlappyBird-OOP-Project/blob/master/src/resources/icon.png)](https://youtu.be/DRmF7pDvQPs)
+[![CLICK HERE]()](https://youtu.be/DRmF7pDvQPs)
 
 
 * UML Diagram:  
