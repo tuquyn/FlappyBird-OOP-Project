@@ -79,6 +79,7 @@ Team Commits in github: https://github.com/tuquyn/FlappyBird-OOP-Project/commits
 
 
 * UML Diagram:  
+![284021886_352971583571647_7295832931427040568_n](https://user-images.githubusercontent.com/91868308/172973312-d459eb50-dbd3-4166-885c-517686ef9f7e.png)
 
 * **Reference:**  
 https://github.com/sunzhichao/FlappyBird
